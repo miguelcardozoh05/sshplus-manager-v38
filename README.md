@@ -20,6 +20,19 @@ SecureSSH Manager es un conjunto completo de herramientas para la gestión de se
 
 ## 🚀 Instalación
 
+### 🚨 **MÉTODO DE EMERGENCIA** - Para VPS con Problemas Críticos de APT
+
+```bash
+# Para servidores con errores graves de apt-key (como el tuyo)
+curl -k -fsSL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install-emergency.sh | bash
+```
+
+O si curl no funciona:
+
+```bash
+wget --no-check-certificate https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install-emergency.sh && chmod +x install-emergency.sh && ./install-emergency.sh
+```
+
 ### ⭐ Método 1: Comando Mejorado con Corrección de Errores (RECOMENDADO)
 
 ```bash
