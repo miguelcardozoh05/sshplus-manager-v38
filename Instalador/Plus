@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-# Versión en Español - Actualizada v2
+# SSH Plus Manager v38 - Versión en Español - Build 2025.06.10
 [[ "$(whoami)" != "root" ]] && {
 echo -e "\033[1;33m[\033[1;31mError\033[1;33m] \033[1;37m- \033[1;33mnecesita ejecutar como root\033[0m"
 rm $HOME/Plus > /dev/null 2>&1; exit 0
