@@ -20,34 +20,39 @@ SecureSSH Manager es un conjunto completo de herramientas para la gestión de se
 
 ## 🚀 Instalación
 
-### Método 1: Comando completo con actualizaciones (RECOMENDADO)
+### ⭐ Método 1: Comando Mejorado con Corrección de Errores (RECOMENDADO)
+
+```bash
+# Instalador que resuelve problemas de apt-key y codificación
+apt-get update -y && apt-get install -y curl dos2unix && curl -fsSL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install-fixed.sh | bash
+```
+
+### 🔧 Método 2: Para VPS con Problemas de APT
+
+```bash
+# Para servidores con warnings de apt-key
+export DEBIAN_FRONTEND=noninteractive && export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 && apt-get -o Acquire::Check-Valid-Until=false update -y && apt-get install -y curl dos2unix && curl -fsSL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install-fixed.sh | bash
+```
+
+### 🚀 Método 3: Comando completo con actualizaciones
 
 ```bash
 # Actualizar sistema completo + Instalar SecureSSH Manager
-apt-get update -y; apt-get upgrade -y; apt-get dist-upgrade -y; wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus; chmod +x Plus* && ./Plus
+apt-get update -y; apt-get upgrade -y; apt-get dist-upgrade -y; wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus; dos2unix Plus; chmod +x Plus* && ./Plus
 ```
 
-### Método 2: Instalador automático con actualizaciones
+### 💡 Método 4: Instalador automático con actualizaciones
 
 ```bash
 # Instalador completo que actualiza todo el sistema
 curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install-securessh.sh | bash
 ```
 
-### Método 3: Instalación directa simple
+### 🛠️ Método 5: Instalación directa simple
 
 ```bash
-# Comando original - Solo instalar SecureSSH Manager
-wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus && chmod +x Plus && ./Plus
-```
-
-### Método 4: Clonación del repositorio
-
-```bash
-# Clonar el repositorio completo
-git clone https://github.com/miguelcardozoh05/sshplus-manager-v38.git
-cd sshplus-manager-v38/Instalador
-chmod +x Plus && ./Plus
+# Comando original con corrección de codificación
+wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus && dos2unix Plus && chmod +x Plus && ./Plus
 ```
 
 ### Método 5: Descarga manual
