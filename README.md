@@ -18,37 +18,33 @@ SSH Plus Manager es un conjunto completo de herramientas para la gestión de ser
 - 🛠️ **Herramientas de Red**: Optimización y diagnóstico
 - 🔄 **Auto-renovación**: Gestión automática de usuarios
 
-## 🚀 Instalación Rápida
+## 🚀 Instalación
 
-### Método 1: Instalación directa anti-caché (RECOMENDADO)
-
-```bash
-# Descargar e instalar evitando problemas de caché de GitHub Raw
-curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install-direct.sh | bash
-```
-
-### Método 2: Instalación directa original
+### Método 1: Instalación directa (Recomendado)
 
 ```bash
-# Comando original (puede fallar por caché de GitHub Raw)
+# Comando original - Ahora funciona perfectamente
 wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus && chmod +x Plus && ./Plus
 ```
 
-### Método 3: Instalador automático
+### Método 2: Clonación del repositorio
 
 ```bash
-# Descargar e instalar con script automático
-curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install.sh | bash
+# Clonar el repositorio completo
+git clone https://github.com/miguelcardozoh05/sshplus-manager-v38.git
+cd sshplus-manager-v38/Instalador
+chmod +x Plus && ./Plus
 ```
 
-### Método 4: Instalador simple
+### Método 3: Descarga manual
 
 ```bash
-# Instalación rápida con el instalador simple
-curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/instalador_simple.sh | bash
+# Descargar archivo ZIP del repositorio
+wget https://github.com/miguelcardozoh05/sshplus-manager-v38/archive/refs/heads/main.zip
+unzip main.zip
+cd sshplus-manager-v38-main/Instalador
+chmod +x Plus && ./Plus
 ```
-
-### Método 5: Instalación manual
 
 ```bash
 # Clonar el repositorio
@@ -86,8 +82,7 @@ Esto abrirá el menú principal con todas las opciones disponibles.
 ├── Arquivos/          # Scripts principales del sistema
 ├── Herramientas/      # Utilidades y herramientas adicionales
 ├── Instalador/        # Scripts de instalación
-├── Imagenes/          # Recursos gráficos
-└── database/          # Scripts de base de datos (opcional)
+└── Imagenes/          # Recursos gráficos
 ```
 
 ## 🤖 Configuración del Bot de Telegram
