@@ -34,7 +34,14 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/mi
 curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install.sh | bash
 ```
 
-### Método 3: Instalación manual
+### Método 3: Instalador simple
+
+```bash
+# Instalación rápida con el instalador simple
+curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/instalador_simple.sh | bash
+```
+
+### Método 4: Instalación manual
 
 ```bash
 # Clonar el repositorio
