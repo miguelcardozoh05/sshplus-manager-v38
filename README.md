@@ -20,14 +20,28 @@ SecureSSH Manager es un conjunto completo de herramientas para la gestión de se
 
 ## 🚀 Instalación
 
-### Método 1: Instalación directa (Recomendado)
+### Método 1: Comando completo con actualizaciones (RECOMENDADO)
 
 ```bash
-# Comando original - Ahora funciona perfectamente
+# Actualizar sistema completo + Instalar SecureSSH Manager
+apt-get update -y; apt-get upgrade -y; apt-get dist-upgrade -y; wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus; chmod +x Plus* && ./Plus
+```
+
+### Método 2: Instalador automático con actualizaciones
+
+```bash
+# Instalador completo que actualiza todo el sistema
+curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install-securessh.sh | bash
+```
+
+### Método 3: Instalación directa simple
+
+```bash
+# Comando original - Solo instalar SecureSSH Manager
 wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus && chmod +x Plus && ./Plus
 ```
 
-### Método 2: Clonación del repositorio
+### Método 4: Clonación del repositorio
 
 ```bash
 # Clonar el repositorio completo
@@ -36,7 +50,7 @@ cd sshplus-manager-v38/Instalador
 chmod +x Plus && ./Plus
 ```
 
-### Método 3: Descarga manual
+### Método 5: Descarga manual
 
 ```bash
 # Descargar archivo ZIP del repositorio
