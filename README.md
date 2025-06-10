@@ -1,12 +1,12 @@
-# SSH Plus Manager v38 - Versión en Español
+# SecureSSH Manager v38 - Versión en Español
 
 <div align="center">
-  <img src="Imagenes/SSHPLUS_MANAGER.png" alt="SSH Plus Manager" width="400">
+  <img src="Imagenes/SSHPLUS_MANAGER.png" alt="SecureSSH Manager" width="400">
 </div>
 
 ## 📋 Descripción
 
-SSH Plus Manager es un conjunto completo de herramientas para la gestión de servidores VPS, usuarios SSH, conexiones y servicios de red. Esta versión ha sido traducida al español y optimizada para facilitar su uso.
+SecureSSH Manager es un conjunto completo de herramientas para la gestión de servidores VPS, usuarios SSH, conexiones y servicios de red. Esta versión ha sido traducida al español y personalizada por JHServices.
 
 ## ✨ Características
 
@@ -141,8 +141,9 @@ Este script es para uso educativo y de pruebas. El usuario es responsable del us
 
 ## 📞 Soporte
 
-- **Telegram**: [@SSHPLUS](https://t.me/sshplus)
-- **Canal**: [@CRAZY_VPN](https://t.me/crazy_vpn)
+- **Desarrollado por**: JHServices
+- **Telegram**: [@JHServices](https://t.me/jhservices)
+- **SecureSSH Manager**: Versión personalizada en español
 
 ## 📄 Licencia
 
