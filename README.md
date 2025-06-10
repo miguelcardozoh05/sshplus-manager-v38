@@ -20,28 +20,35 @@ SSH Plus Manager es un conjunto completo de herramientas para la gestión de ser
 
 ## 🚀 Instalación Rápida
 
-### Método 1: Instalación directa (Recomendado)
+### Método 1: Instalación directa anti-caché (RECOMENDADO)
 
 ```bash
-# Comando único (similar al original)
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus; chmod +x Plus* && ./Plus
+# Descargar e instalar evitando problemas de caché de GitHub Raw
+curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install-direct.sh | bash
 ```
 
-### Método 2: Instalador automático
+### Método 2: Instalación directa original
+
+```bash
+# Comando original (puede fallar por caché de GitHub Raw)
+wget https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/Instalador/Plus && chmod +x Plus && ./Plus
+```
+
+### Método 3: Instalador automático
 
 ```bash
 # Descargar e instalar con script automático
 curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/install.sh | bash
 ```
 
-### Método 3: Instalador simple
+### Método 4: Instalador simple
 
 ```bash
 # Instalación rápida con el instalador simple
 curl -sL https://raw.githubusercontent.com/miguelcardozoh05/sshplus-manager-v38/main/instalador_simple.sh | bash
 ```
 
-### Método 4: Instalación manual
+### Método 5: Instalación manual
 
 ```bash
 # Clonar el repositorio
