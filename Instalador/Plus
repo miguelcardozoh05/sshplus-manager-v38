@@ -104,15 +104,63 @@ clear
 echo ""
 echo -e "              \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mFINALIZANDO \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
 echo ""
-echo -e "      \033[1;33m¡CONCLUYENDO FUNCIONES Y DEFINICIONES! \033[0m"
+echo -e "      \033[1;33m¡INSTALANDO SCRIPTS SECURESSH MANAGER! \033[0m"
 echo ""
-fun_bar "$_Ink/list $_lnk $_Ink $_1nk"
+
+# Función para instalar scripts desde GitHub
+install_scripts () {
+    # Crear directorios necesarios
+    mkdir -p /bin
+    mkdir -p /etc/SSHPlus
+    
+    # Descargar repositorio completo si no existe
+    if [[ ! -d "/tmp/sshplus-manager-v38" ]]; then
+        cd /tmp
+        rm -rf sshplus-manager-v38* > /dev/null 2>&1
+        wget -q "https://github.com/miguelcardozoh05/sshplus-manager-v38/archive/refs/heads/main.zip" -O sshplus.zip
+        unzip -q sshplus.zip
+        mv sshplus-manager-v38-main sshplus-manager-v38
+    fi
+    
+    # Copiar scripts principales
+    if [[ -d "/tmp/sshplus-manager-v38/Arquivos" ]]; then
+        cp -r /tmp/sshplus-manager-v38/Arquivos/* /bin/
+        cp -r /tmp/sshplus-manager-v38/Herramientas/* /bin/
+        chmod +x /bin/*
+        
+        # Crear enlaces simbólicos para comandos principales
+        ln -sf /bin/menu /usr/bin/menu > /dev/null 2>&1
+        ln -sf /bin/criarusuario /usr/bin/criarusuario > /dev/null 2>&1
+        ln -sf /bin/sshmonitor /usr/bin/sshmonitor > /dev/null 2>&1
+        ln -sf /bin/speedtest /usr/bin/speedtest > /dev/null 2>&1
+        ln -sf /bin/botssh /usr/bin/botssh > /dev/null 2>&1
+        
+        # Limpiar archivos temporales
+        rm -rf /tmp/sshplus-manager-v38* /tmp/sshplus.zip > /dev/null 2>&1
+    fi
+}
+
+fun_bar 'install_scripts'
 clear
 echo ""
 cd $HOME
 echo -e "        \033[1;33m • \033[1;32mINSTALACIÓN COMPLETADA\033[1;33m • \033[0m"
 echo ""
-echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mmenu\033[0m"
-echo -e "\033[1;33m SECURESSH MANAGER \033[1;31m(\033[1;36mCREADO POR\033[1;31m): \033[1;37mJHSERVICES\033[0m"
-echo -e "\033[1;33m MÁS INFORMACIÓN \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@JHSERVICES\033[0m"
-rm $HOME/Plus && cat /dev/null > ~/.bash_history && history -c
+echo -e "\033[1;32m┌─────────────────────────────────────────────────┐\033[0m"
+echo -e "\033[1;32m│               SECURESSH MANAGER                 │\033[0m"  
+echo -e "\033[1;32m└─────────────────────────────────────────────────┘\033[0m"
+echo ""
+echo -e "\033[1;31m 📋 \033[1;33mCOMANDO PRINCIPAL: \033[1;32mmenu\033[0m"
+echo -e "\033[1;31m 👤 \033[1;33mCREAR USUARIO: \033[1;32mcriarusuario\033[0m"
+echo -e "\033[1;31m 📊 \033[1;33mMONITOR SSH: \033[1;32msshmonitor\033[0m"
+echo -e "\033[1;31m 🚀 \033[1;33mTEST VELOCIDAD: \033[1;32mspeedtest\033[0m"
+echo -e "\033[1;31m 🤖 \033[1;33mBOT TELEGRAM: \033[1;32mbotssh\033[0m"
+echo ""
+echo -e "\033[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;33m SECURESSH MANAGER \033[1;31m│ \033[1;36mCREADO POR: \033[1;37mJHSERVICES\033[0m"
+echo -e "\033[1;33m MÁS INFORMACIÓN \033[1;31m│ \033[1;36mTELEGRAM: \033[1;37m@JHSERVICES\033[0m"
+echo -e "\033[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+echo -e "\033[1;32m✅ Para comenzar, escribe: \033[1;37mmenu\033[0m"
+echo ""
+rm $HOME/Plus* > /dev/null 2>&1 && cat /dev/null > ~/.bash_history && history -c
