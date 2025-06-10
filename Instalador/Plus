@@ -109,9 +109,31 @@ echo ""
 
 # Función para instalar scripts desde GitHub
 install_scripts () {
-    # Crear directorios necesarios
-    mkdir -p /bin
-    mkdir -p /etc/SSHPlus
+    # Crear directorio de licencia necesario
+    echo -e 'by: @JHSERVICES' > /usr/lib/sshplus
+    
+    # Crear directorios necesarios para SSHPlus
+    [[ ! -d /etc/SSHPlus ]] && mkdir /etc/SSHPlus
+    [[ ! -d /etc/SSHPlus/senha ]] && mkdir /etc/SSHPlus/senha
+    [[ ! -e /etc/SSHPlus/Exp ]] && touch /etc/SSHPlus/Exp
+    [[ ! -d /etc/SSHPlus/userteste ]] && mkdir /etc/SSHPlus/userteste
+    [[ ! -d /etc/SSHPlus/.tmp ]] && mkdir /etc/SSHPlus/.tmp
+    [[ ! -d /etc/bot ]] && mkdir /etc/bot
+    [[ ! -d /etc/bot/info-users ]] && mkdir /etc/bot/info-users
+    [[ ! -d /etc/bot/arquivos ]] && mkdir /etc/bot/arquivos
+    [[ ! -d /etc/bot/revenda ]] && mkdir /etc/bot/revenda
+    [[ ! -d /etc/bot/suspensos ]] && mkdir /etc/bot/suspensos
+    [[ ! -e /etc/bot/lista_ativos ]] && touch /etc/bot/lista_ativos
+    [[ ! -e /etc/bot/lista_suspensos ]] && touch /etc/bot/lista_suspensos
+    
+    # Copiar licencia a directorios necesarios
+    cat /usr/lib/sshplus > /etc/SSHPlus/licence
+    cat /usr/lib/sshplus > /etc/SSHPlus/.tmp/crazy
+    
+    # Configurar timezone
+    echo -e "America/Sao_Paulo" > /etc/timezone
+    ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
+    dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
     
     # Descargar repositorio completo si no existe
     if [[ ! -d "/tmp/sshplus-manager-v38" ]]; then
@@ -122,18 +144,30 @@ install_scripts () {
         mv sshplus-manager-v38-main sshplus-manager-v38
     fi
     
-    # Copiar scripts principales
+    # Copiar scripts principales a /bin
     if [[ -d "/tmp/sshplus-manager-v38/Arquivos" ]]; then
-        cp -r /tmp/sshplus-manager-v38/Arquivos/* /bin/
-        cp -r /tmp/sshplus-manager-v38/Herramientas/* /bin/
+        cp /tmp/sshplus-manager-v38/Arquivos/* /bin/
         chmod +x /bin/*
         
-        # Crear enlaces simbólicos para comandos principales
-        ln -sf /bin/menu /usr/bin/menu > /dev/null 2>&1
-        ln -sf /bin/criarusuario /usr/bin/criarusuario > /dev/null 2>&1
-        ln -sf /bin/sshmonitor /usr/bin/sshmonitor > /dev/null 2>&1
-        ln -sf /bin/speedtest /usr/bin/speedtest > /dev/null 2>&1
-        ln -sf /bin/botssh /usr/bin/botssh > /dev/null 2>&1
+        # Mover scripts específicos a /etc/SSHPlus
+        [[ -f /bin/cabecalho ]] && mv /bin/cabecalho /etc/SSHPlus/
+        [[ -f /bin/bot ]] && mv /bin/bot /etc/SSHPlus/
+        [[ -f /bin/open.py ]] && mv /bin/open.py /etc/SSHPlus/
+        [[ -f /bin/proxy.py ]] && mv /bin/proxy.py /etc/SSHPlus/
+        
+        # Copiar herramientas adicionales
+        cp /tmp/sshplus-manager-v38/Herramientas/* /bin/ 2>/dev/null
+        chmod +x /bin/* 2>/dev/null
+        
+        # Configurar IP del servidor
+        IP=$(wget -qO- ifconfig.me 2>/dev/null || curl -s ifconfig.me 2>/dev/null || echo "127.0.0.1")
+        echo -e "$IP" > /etc/IP
+        
+        # Configurar SSH
+        [[ "$(grep -o '#Port 22' /etc/ssh/sshd_config)" == "#Port 22" ]] && sed -i "s;#Port 22;Port 22;" /etc/ssh/sshd_config && service ssh restart
+        grep -v "^PasswordAuthentication" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
+        echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+        service ssh restart
         
         # Limpiar archivos temporales
         rm -rf /tmp/sshplus-manager-v38* /tmp/sshplus.zip > /dev/null 2>&1
