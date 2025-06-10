@@ -1,0 +1,62 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+*~
+
+# Bases de datos y archivos de configuración sensibles
+usuarios.db
+*.key
+*.pem
+*.crt
+config.ini
+.env
+
+# Directorios de logs
+logs/
+*.log
+
+# Archivos de Node.js (si los hay)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+
+# Archivos de backup
+*.backup
+*.old
+
+# Directorios temporales del sistema
+tmp/
+temp/
+cache/
+
+# Archivos específicos del proyecto que no deben subirse
+/etc/
+/var/
+/usr/local/
+/home/
+
+# Archivos de claves y tokens
+token.txt
+key.txt
+*.token
+
+# Directorios de instalación
+install_files/
+deployment/
