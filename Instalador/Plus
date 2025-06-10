@@ -109,8 +109,9 @@ echo ""
 
 # Función para instalar scripts desde GitHub
 install_scripts () {
-    # Crear directorio de licencia necesario
+    # Crear directorios de licencia necesarios
     echo -e 'by: @JHSERVICES' > /usr/lib/sshplus
+    echo -e 'by: @JHSERVICES' > /usr/lib/licence
     
     # Crear directorios necesarios para SSHPlus
     [[ ! -d /etc/SSHPlus ]] && mkdir /etc/SSHPlus
